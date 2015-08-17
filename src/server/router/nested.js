@@ -9,7 +9,7 @@ module.exports = function () {
   // Rewrite url to /:nested?:resourceId=:id
   router.get('/:resource/:id/:nested', function (req, res, next) {
     var prop = pluralize.singular(req.params.resource)
-    req.query[prop + 'Id'] = utils.toNative(req.params.id)
+    req.query[prop + '_id'] = utils.toNative(req.params.id)
     req.url = '/' + req.params.nested
     next()
   })
